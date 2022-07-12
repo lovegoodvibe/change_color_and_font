@@ -3,6 +3,8 @@ import ColorPick from "./Components/ColorPick";
 import SizeSetting from "./Components/SizeSetting";
 import Reset from "./Components/Reset";
 import Result from "./Components/Result";
+import {Button, Icon, Grid, Segment} from "semantic-ui-react";
+import 'semantic-ui-css/semantic.min.css'
 
 class App extends Component {
     constructor(props) {
@@ -12,6 +14,7 @@ class App extends Component {
             fontSize: 16
         }
     }
+
 
     onSetColor = (params) => {
         this.setState({
@@ -35,20 +38,22 @@ class App extends Component {
     }
 
     render() {
+        const {color, fontSize} = this.state;
         return (
             <div>
                 <div style={{width: 800, height: 160}}>
                     <ColorPick
-                        color={this.state.color}
+                        color={color}
                         onRecieveColor={this.onSetColor}/>
-                    <SizeSetting fontSize={this.state.fontSize}
+                    <SizeSetting fontSize={fontSize}
                                  onChangheSize={this.onChangeSize}
                     ></SizeSetting>
                 </div>
                 <Reset onSettingReset={this.onSettingReset}></Reset>
-                <Result color={this.state.color}
-                        fontSize={this.state.fontSize}
+                <Result color={color}
+                        fontSize={fontSize}
                 ></Result>
+
             </div>
         );
     }

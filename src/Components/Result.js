@@ -1,32 +1,31 @@
-import React,{Component} from "react";
+import React, {Component} from "react";
+import 'semantic-ui-css/semantic.min.css';
+import {Button} from "semantic-ui-react";
 
 class Result extends Component {
-    constructor(props) {
-        super(props);
-        this.state ={
-
-        }
-    }
-    setStyle(){
-        return({
-            color:this.props.color,
-            border:5, borderStyle:"solid",
-            borderColor: this.props.color,
-            fontSize: this.props.fontSize
+    setStyle() {
+        const {color, fontSize} = this.props;
+        return ({
+            color: color,
+            border: 5, borderStyle: "solid",
+            borderColor: color,
+            fontSize: fontSize
         })
 
 
     }
+
     render() {
-
+        const {fontSize} = this.props;
         return (
-
-            <div style={{width:800,height:200,border:5, borderStyle:"solid",  borderColor: "black"}}>
-                <h3>Color : {this.props.color} - Fontsize : {this.props.fontSize} px</h3>
-                <p style={this.setStyle()}>Nội dung setting</p>
+            <div className="result">
+                <h3>Color : {this.props.color} - Fontsize : {fontSize} px</h3>
+                <p className="noi_dung">Nội dung setting</p>
+                <Button color={"red"}>aaaa</Button>
             </div>
 
         );
     }
 }
+
 export default Result;
